@@ -1,0 +1,170 @@
+
+ <footer>
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="footer-heading">Basic JavaScript</div>
+             <ul>
+                <li><a href="/frontent/Javascript/variable">Javascript Variable</a></li>
+                <li><a href="/frontent/data-type">Data Type</a> </li>
+                <li><a href="Javascript/object">Object</a></li>
+                <li><a href="Javascript/operators">What is Operators ?</a></li>
+                <li><a href="Javascript/function">Function</a></li>
+                <li><a href="Javascript/loop">What is Loop ?</a></li>
+                <li><a href="Javascript/array">Array</a></li>
+                <li><a href="Javascript/dom-css-method">DOM CSS Method</a></li>
+                <li><a href="Javascript/dom-className">dom ClassName</a></li>
+                <li><a href="Javascript/dom-ClassList">dom ClassList</a></li>
+             </ul>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="footer-heading">Modern JavaScript</div>
+             <ul>
+                <li><a href="modern-javascript/let-and-const-variable">Let & Const Variable</a></li>
+                <li><a href="modern-javascript/template-literals">Template Literals</a></li>
+                <li><a href="modern-javascript/arrow-functions">Arrow Functions</a></li>
+                <li><a href="modern-javascript/rest-parameters">Rest Parameters</a></li>
+                <li><a href="modern-javascript/spread-operator">Spread Operator</a></li>
+                <li><a href="modern-javascript/object-literals">Object Literals</a></li>
+                <li><a href="modern-javascript/object-destructuring">Object Destructuring</a></li>
+                <li><a href="modern-javascript/class-constructor-and-methods">class, constructor, method (Oops)</a></li>
+                <li><a href="modern-javascript/multiple-class-inheritance">Multiple class inheritance (Oops)</a></li>
+                <li><a href="modern-javascript/javaScript-modules">Modules(Import & Export)</a></li>
+             </ul>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="footer-heading">Angular JavaScript</div>
+             <ul>
+                <li><a href="#">Install Angular</a></li>
+                <li><a href="#">Folder Structure </a></li>
+                <li><a href="#">use Bootstrap in Angular</a></li>
+                <li><a href="#">create component</a></li>
+                <li><a href="#">create Module</a></li>
+                <li><a href="#">Data Binding </a></li>
+                <li><a href="#">Interpolation</a></li>
+                <li><a href="#">Property Binding</a></li>
+                <li><a href="#">Attribute Binding </a></li>
+             </ul>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <div class="footer-heading">Social Media</div>
+             <ul>
+                <li><a href="https://www.youtube.com/channel/UCmBI2HUpwL9T4tLmHXjqddg/playlists" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a></li>
+                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                <li><a href="https://twitter.com/teachcoders" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twiter</a></li>
+                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a> Linkden</li>
+             </ul>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="footer-copy_right_text">
+                Copyright © 2021 Teach Coders - All Rights Reserved.
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+
+ <script type="text/javascript">
+    /// some script
+    
+    // jquery ready start
+    $(document).ready(function() {
+     
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("teach_coders_header");
+        //var sticky = header.offsetTop;
+        function myFunction() {
+          if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            header.classList.add("sticky");
+          } 
+          else {
+            header.classList.remove("sticky");
+          }
+        }
+    
+      // off convas menu jQuery code
+    
+        $("[data-trigger]").on("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var offcanvas_id =  $(this).attr('data-trigger');
+            $(offcanvas_id).toggleClass("show");
+            $('body').toggleClass("offcanvas-active");
+            $(".screen-overlay").toggleClass("show");
+    
+        }); 
+    
+    
+        // Close menu when pressing ESC
+        $(document).on('keydown', function(event) {
+            if(event.keyCode === 27) {
+               $(".offcanvas").removeClass("show");
+               $("body").removeClass("overlay-active");
+            }
+        });
+    
+        $(".btn-close, .screen-overlay").click(function(e){
+          $(".screen-overlay").removeClass("show");
+            $(".offcanvas").removeClass("show");
+            $("body").removeClass("offcanvas-active");
+    
+    
+        }); 
+      
+     // off convas menu jQuery code
+    
+    
+      $("li.side_drop_down").click(function(){
+          $('li.side_drop_down.active_nav').removeClass('active_nav');
+          $(this).addClass('active_nav');    
+      });
+    
+      $('div.more-read').hide();
+        $('.click_me').click(function() {
+            $(this).parent().find("div.more-read").slideToggle(400);
+            $(this).text($(this).text() == 'Read Less [-]' ? 'Read More [+]' : 'Read Less [-]');
+            return false;
+        });
+    
+    });
+    
+    // side baar accrodion js
+      $(".Dashboard_nav a").click(function() {
+          var link = $(this);
+          var closest_ul = link.closest("ul");
+          var parallel_active_links = closest_ul.find(".active")
+          var closest_li = link.closest("li");
+          var link_status = closest_li.hasClass("active");
+          var count = 0;
+    
+          closest_ul.find("ul").slideUp(function() {
+              if (++count == closest_ul.find("ul").length)
+                  parallel_active_links.removeClass("active");
+          });
+    
+          if (!link_status) {
+              closest_li.children("ul").slideDown();
+              closest_li.addClass("active");
+          }
+      })
+    
+    
+    
+    
+    // ============SET ACTIVE FOLDER FOR SIDE NAVIGATION
+    
+      
+ </script>
+ <!--js for serch box-->
+ <script src="/frontent/js/search-compile.js"></script>
+ <script src="/frontent/js/search-data-list.js"></script>
+ <!--/js for serch box-->
+ <!-- START CODE FOR VIEW SOURCE DESIGB -->
+ <script src="https://www.teachcoders.com/js/code-view.js"></script>
+ <script>hljs.highlightAll();</script>
+ <link  rel="stylesheet"  href="https://www.teachcoders.com/css/code-view-design.css">
+</body>
+</html>

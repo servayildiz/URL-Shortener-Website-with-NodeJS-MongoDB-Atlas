@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Kısaltırız</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="URL Shortener Website" name="keywords">
+        <meta content="URL Shortener Website" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Header Start -->
+            <div class="header home">
+                <div class="container-fluid">
+                    <div class="header-top row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="">
+                                <a href="/">
+                                    <!-- Kısaltırız -->
+                                    <img src="logo4.png" alt="Logo" style="height: 150px;" >
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:+905051453650"><i class="fa fa-phone-alt"></i>+90 546 234 56 78</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="mailto:kisaltiriz3@gmail.com"><i class="fa fa-envelope"></i>kisaltiriz3@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="www.youtube.com"><i class="fab fa-youtube"></i></a>
+                                        <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                        <a href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href=""><img src="icons8-user-90.png" style="width: 40px;" alt=""></a>
+                                         <a href=""  class="nav-item nav-link"><%= name %></a>
+                                        <a href="" class="nav-item nav-link active"><%= email %></a>
+                                        <a href="/logout" class="nav-item nav-link">Çıkış Yap</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero row align-items-center">
+                        <div class="col-md-7">
+                            <h2>En İyi ve En Güvenli</h2>
+                            <h2><span style="font-weight: 400;">Link Kısaltma</span> Servisi</h2>
+                            <p>En kolay şekilde linklerinizi kısaltın</p>
+                            <a class="btn" href="">Daha Fazla</a>
+                        </div>
+                        <!-- URL Shorter Start -->
+                        <!-- <div class="col-md-5">
+                          <div class="col-md-12 home">                       
+                            <div class=" form mx-auto">
+                              <h1 class="text-center mb-5" style="color:white;">URL Kısaltıcı</h1>
+                              <% if(typeof errors != 'undefined'){%>
+                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <%= errors[0].msg%>
+                                <button
+                                  type="button"
+                                  class="close"
+                                  data-dismiss="alert"
+                                  aria-label="Close"
+                                >
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <%}%> <% if(typeof currentUrl!= 'undefined' && typeof customUrl !=
+                              'undefined'){%>
+                              <div
+                                class="alert alert-success alert-dismissible fade show d-flex"
+                                role="alert"
+                              >
+                                Kısaltılan URL'in:
+                                <p class="text-dark font-weight-bolder">
+                                  <%= currentUrl + customUrl%>
+                                </p>
+                                <button
+                                  type="button"
+                                  class="close"
+                                  data-dismiss="alert"
+                                  aria-label="Close"
+                                >
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <%}%>
+                              <form action="/" method="POST" class="form-check shadow p-4">
+                                <div class="form-group">
+                                  <label for="Url">URL Giriniz</label>
+                                  <input
+                                    type="url"
+                                    name="mainUrl"
+                                    class="form-control border-bottom border-left-0 border-top-0 border-right-0 border-secondary"
+                                    placeholder="URL Girin"
+                                  />
+                                </div>
+                          
+                                <div class="form-group">
+                                  <label for="shortUrl">Bir kısaltma ifadesi belirleyiniz</label>
+                                  <div class="form-group border-0 border-bottom d-flex">
+                                    <input type="hidden" name="currentUrl" value="<%= currentUrl %>" />
+                                    <p class="mt-2 pl-2"><%= currentUrl %></p>
+                                    <input
+                                      type="text"
+                                      name="customUrl"
+                                      class="ml-2 form-control border-bottom border-left-0 border-top-0 border-right-0 border-secondary"
+                                      placeholder="Kısa halini giriniz"
+                                    />
+                                  </div>
+                                </div>
+                          
+                                <div class="form-group">
+                                  <button
+                                    type="submit"
+                                    class="btn text-white font-weight-bolder btn-dark btn-block"
+                                  >
+                                    Kısalt
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div> -->
+                        <!--URL Shorter End  -->
+                        <div class="col-md-5">
+                          <div class="col-md-12 home">                       
+                            <div class=" form mx-auto" style="width: 230px;">
+                        <a class="btn" href="/">URL Kısalt</a>
+                            </div></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+            
+            
+            <!-- About Start -->
+            <div class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="about-img">
+                                <img src="url_kisalticii.jpg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <div class="about-text">
+                                <h2>Hakkımızda?</h2>
+                                <p>
+                                    Kısaltırız ekibi olarak kuruluş amacımız her zaman insanların işine yarayacak sistemler, teknolojiler ve uygulamalar üretmektir. Müşterilerimizin memnuniyeti her zaman önceliğimizdir. Hiyerarşik sisteme ihtiyaç duymadan işleri takım çalışmasıyla en iyi şekilde tamamalayabilen ekibimiz sayesinde şirketimizi her gün daha çok güçlendiriyoruz.
+                                </p>
+                                <p>
+                                    Misyonumuz her zaman daha çok ve birlikte çalışmaktır. Etkili iletişim her zaman hem müşterileri ilişkilerimizde hem de çalışan ilişkilerimizde en çok önem verdiğimiz yetkinliklerdendir. 
+                                </p>
+                                <p>
+                                    Vizyonumuz daima insanlara en kaliteli ve en hızlı hizmeti sunabilmektir. Sürekli yeniliklere ayak uydurup zamanın ötesine geçmeyi hedefleyen yapımızla çalışanlarımızın ve müşterilemizin en iyi deneyimini yaşamaları için çabalamaya devam edeceğiz.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About End -->
+       
+            <!-- Newsletter Start -->
+            <div class="newsletter">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2>Teklif Alın</h2>
+                            <p>
+                                Abonelik tekliflerimiz hakkında detaylı bilgi alabilmek için mail adresinizi gönderin
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form">
+                                <form action="https://formspree.io/f/mgebenww" method="POST">
+                                <input class="form-control" name="email" id="email" placeholder="Mailiniz">
+                                <button class="btn">Gönder</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Newsletter End -->
+
+
+            <!-- FAQs Start -->
+            <div class="faqs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="section-header left">
+                                <p>Sorunuz Mu Var?</p>
+                                <h2>Sıkça Sorulan Sorular</h2>
+                            </div>
+                            <img src="sss.jpg" alt="Image" style="height: 240px; ">
+                        </div>
+                        <div class="col-md-7">
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
+                                            <span>1</span>Ne işe yarar?
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                        <div class="card-body">
+                                            URL kısaltma, linkinizin orijinal uzunluğunu çeşitli araçlarla kısaltarak paylaşabilmenizi sağlar. Uzun bir link bağlantısını isteğe bağlı olarak 10 karatere kadar özel bir takma ada çevirebilmenizi sağlar. Ayrıca kendi belirlediğiniz zamana kadar linkinize kullanım süresi verebilirsiniz. Böylelikle belirlediğiniz tarihten sonra paylaştığınız linki işlesiz hâle getirebilirsiniz.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                                            <span>2</span> Nasıl kullanılır?
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            İlk olarak "URL Kısaltıcı" alanında kısaltmak istediğiniz linki girin. Sonra geçerlilik tarihini belirleyiniz. Daha sonra linkinizin kaç karakterlik bir özel takma ada dönüştürmek istediğinizi seçin. Son olarak da 'Kısalt' butonuna tıklayın. Böylelikle işinizi saniyeler içinde halletmiş olacaksınız.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseThree">
+                                            <span>3</span>Kısalttığım linkleri ne kadar süre kullanabilirim?
+                                        </a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            Linklerinizin kullanımı için en fazla belirlenmiş olan süre 95 gündür. Fakat isteğe bağlı olarak daha az bir süre vermenizde mümkündür. 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseFour">
+                                            <span>4</span>Kısaltılan linkler en fazla kaç karakterden oluşabilir?   
+                                        </a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            Linklerinizin özel takma adları için 10 karaktere kadar seçim yapabilmehakkınız vardır.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseFive">
+                                            <span>5</span>En çok tıklanan linklere nereden ulaşabilirim?
+                                        </a>
+                                    </div>
+                                    <div id="collapseFive" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            En çok tıklanan linkler en çok link kısaltan kullanıcılar gibi çeşitli istatistiklere <a href="/statisticks">'İstatistikler'</a> sayfamızdan ulaşabilirsiniz.
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQs End -->
+
+            <!-- Testimonial Start -->
+            <div class="testimonial">
+                <div class="container">
+                    <div class="section-header">
+                        <p>Müşteri İzlenimleri</p>
+                        <h2>Müşterilerimiz Ne Diyor?</h2>
+                    </div>
+                    <div class="owl-carousel testimonials-carousel">
+                        <div class="testimonial-item">
+                            <div class="testimonial-img">
+                                <img src="testimonial-1.jpg" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                                <h3>Customer Name</h3>
+                                <h4>Profession</h4>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-img">
+                                <img src="testimonial-2.jpg" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                                <h3>Customer Name</h3>
+                                <h4>Profession</h4>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-img">
+                                <img src="testimonial-3.jpg" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                                <h3>Customer Name</h3>
+                                <h4>Profession</h4>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-img">
+                                <img src="testimonial-4.jpg" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                                <h3>Customer Name</h3>
+                                <h4>Profession</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial End -->
+
+            
+            <!-- Team Start -->
+            <div class="team">
+                <div class="container">
+                    <div class="section-header">
+                        <p>Takım Üyelerimiz</p>
+                        <h2>Kadromuzla Tanışın</h2>
+                    </div>
+                    <br><br><br><br><br></br>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <!-- <img src="img/team-1.jpg" alt="Team Image"> -->
+                                </div>
+                                <div class="team-text">
+                                    <h2>Ahmet Melih Türkmen</h2><br>
+                                    <h3>Backend Developer</h3>
+                                    <div class="team-social">
+                                        <a class="social-tw" href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a class="social-fb" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="social-li" href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="social-in" href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <!-- <img src="img/team-2.jpg" alt="Team Image"> -->
+                                </div>
+                                <div class="team-text">
+                                    <h2>Zeynep Serva Yıldız</h2><br>
+                                    <h3>Backend Developer</h3>
+                                    <div class="team-social">
+                                        <a class="social-tw" href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a class="social-fb" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="social-li" href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="social-in" href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-text">
+                                    <h2>Abdullah İşler</h2><br>
+                                    <h3>Frontend Developer</h3>
+                                    <div class="team-social">
+                                        <a class="social-tw" href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a class="social-fb" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="social-li" href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="social-in" href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <!-- <img src="img/team-4.jpg" alt="Team Image"> -->
+                                </div>
+                                <div class="team-text">
+                                    <h2>Zehra Betül Taşkın</h2><br>
+                                    <h3>Frontend Developer</h3>
+                                    <div class="team-social">
+                                        <a class="social-tw" href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a class="social-fb" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="social-li" href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="social-in" href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <!-- Team End -->
+
+
+            <!-- Footer Start -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-contact">
+                                <h2>Bize Ulaşın</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>Kabaoğlu, Baki Komsuoğlu bulvarı No:515, Umuttepe, 41001 İzmit/Kocaeli</p>
+                                <p><i class="fa fa-phone-alt"></i>+90 546 234 56 78</p>
+                                <p><i class="fa fa-envelope"></i>kisaltiriz3@gmail.com</p>
+                                <div class="footer-social">
+                                        <a href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="www.youtube.com"><i class="fab fa-youtube"></i></a>
+                                        <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                        <a href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Hızlı Erişim</h2>
+                                <a href="/index">Anasayfa</a>
+                                <a href="/about">Hakkımızda</a>
+                                <a href="/statisticks">İstatistikler</a>
+                                <a href="/contact">İletişim</a>
+                                <a href="/login">Giriş Yap</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Diğer</h2>
+                                <a href="Kişisel Verileri Koruma Kanunu.pdf">KVKK Metni</a>
+                                <a href="Kısaltırız Aydınlatma Metni.pdf">Aydınlatma Metni</a>
+                                <a href="Gizlilik Metni.pdf">Gizlilik Politikası</a>
+                                <a href="Çerez Politikası.pdf">Çerezler</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-form">
+                                <h2>Hakkında</h2>
+                                <p>
+                                    Kısaltırız ekibi olarak kuruluş amacımız her zaman insanların işine yarayacak sistemler, teknolojiler ve uygulamalar üretmektir. Hiyerarşik sisteme ihtiyaç duymadan işleri takım çalışmasıyla en iyi şekilde tamamlayabilen ekibimiz sayesinde şirketimizi her gün daha çok güçlendiriyoruz.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; <a href="/"> 2022 Kısaltırız</a>, Tüm Hakları Saklıdır.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><a href="/">Grup Hallederiz</a> tarafından tasarlanmıştır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+            
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="easing/easing.min.js"></script>
+        <script src="owlcarousel/owl.carousel.min.js"></script>
+        <script src="isotope/isotope.pkgd.min.js"></script>
+        <script src="lightbox/js/lightbox.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>

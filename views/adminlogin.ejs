@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giriş Yap</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+	<style>
+		.location{
+			padding: 30px;
+  			border: 1px solid rgba(255, 255, 255, .4);
+			background: rgba(255, 255, 255, .3);
+			border-radius: 5px;
+			margin-top: 150px;
+			padding: 15px 30px 20px;
+			
+		}
+		.background{
+			background: linear-gradient(rgb(0, 42, 255), rgb(207, 87, 255));
+			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+			background-attachment: fixed;
+		}
+		.header{
+			color: white;
+			background: rgba(255, 255, 255, .0);
+			font-size: 35px;
+		}
+		.button{
+			background-color:rgb(110, 70, 212);
+			font-size: 18px;
+			padding: 10px 30px 10px 30px;
+			border-color:rgb(110, 70, 212);
+			color: white;
+		}
+
+	</style>
+
+	
+</head>
+<body class="background">
+	<div class="col-md-4 col-md-offset-4 location">
+		<div >
+			<p class="header">Admin Giriş</p>
+		</div>
+		<div class="form-group">
+			<form id="form" method="post" >
+				
+				<input type="password" name="password" placeholder="Şifre" required="" class="form-control"><br/>
+                
+			</form>
+            <a class="btn button" href="/admin">Giriş Yap</a>
+		</div>
+		<div class="mssg bg-danger">
+			<span id="check" ></span>
+		</div>
+		<div id="LangTable"><a href="/profile" id="aa"></a>
+		</div>
+		
+
+		</div>
+		
+	</div>
+</body>
+</html>

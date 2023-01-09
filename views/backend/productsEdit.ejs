@@ -1,0 +1,96 @@
+
+     <%-include('common/head.ejs')-%>
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+
+                <h1 class="mb-2 mt-2">Edit Products</h1>
+    
+                <form method="post" action="/admin/products/edit/<%=x.productUrl%>?_method=put">          
+                  
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">Category</label></div>
+                  <div class="col">
+                    <select class="form-select" name="product_Cat" onchange="ChooseContact(this)" >
+                      <option value="<%=x.productCatUrl%>"><%=x.productCat%></option>
+                      <%catdata.forEach((y)=>{%>
+                        <option value="<%=y.categoryUrl%>"><%=y.category%></option>
+                      <%})%>
+                     
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">Category URL</label></div>
+                  <div class="col"><input type="text" name="product_cat_Url" id="cat_url"  class="form-control" placeholder="Category Url" readonly></div>
+                </div>
+
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                  <div class="col"><input type="text" name="product_Url" value="<%=x.productUrl%>" class="form-control" placeholder="Page Url"></div>
+                </div>
+                <div class="mb-3 mt-3 row g-9 align-items-center">           
+                  <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                  <div class="col"><input type="text" name="product_Nav_Text" value="<%=x.productNavText%>" class="form-control" placeholder="Navigation Display Text"></div>
+               </div>
+               <div class="mb-3 mt-3 row g-9 align-items-center">           
+                <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                <div class="col"><input type="text" name="product_Title" value="<%=x.productTitle%>" class="form-control" placeholder="Page Title"></div>
+             </div>
+                <div class="mb-3 mt-3 row g-9 align-items-center">           
+                    <div class="col col-lg-2"><label class="form-label">Meta Description</label></div>
+                    <div class="col"><input type="text" name="product_Meta_Descrition" value="<%=x. productMetaDescrition%>" class="form-control" placeholder="product Meta Description"></div>
+                </div>
+          
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">Meta Keyword</label></div>
+                  <div class="col"><input type="text" name="product_Meta_Keyword" class="form-control" value="<%=x.productMetaKeyword%>" placeholder="product Meta Keyword"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">h1</label></div>
+                  <div class="col"><input type="text" name="product_Heading" class="form-control" value="<%=x.productHeading%>" placeholder="product Heading"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                  <div class="col col-lg-2"><label class="form-label">youtube</label></div>
+                  <div class="col"><input name="product_youtube" placeholder="Input Your Youtube Video Url"  value="<%=x.productyoutube%>" class="form-control"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">Page Details</label></div>
+                  <div class="col"><textarea id="editor" class="editor form-control Page_Details" name="product_Details" placeholder="product Details"><%=x.productDetails%></textarea></div>
+                </div>
+
+      
+                <div class="mb-5 mt-3 align-items-center text-center"> 
+                     <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+
+              </form>
+
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+
+     <%-include('common/footer.ejs')-%>
+      <script>
+     function ChooseContact(data) {
+      document.getElementById ("cat_url").value = data.value;        
+      }
+      </script>

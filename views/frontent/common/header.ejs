@@ -1,0 +1,36 @@
+
+
+      <header id="teach_coders_header" class="header">
+         <div class="container">
+            <div class="header-row">
+               <div class="nav_icon" data-trigger="#my_offcanvas1">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+               </div>
+               <div class="logo-name">
+                  <a href="">  <img src="/frontent/images/logo.png" height="35"></a>
+               </div>
+               <div class="header-call-to-action">
+                  <ul>
+                     <%navdata.forEach((y)=>{%>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/<%=y.pageUrl%>"><%=y.pageNavText%></a>
+                        </li>
+                        <%})%>
+                        <li class="nav-item">
+                           <a class="nav-link" href="/course">Courses</a>
+                         </li>
+                  
+                  </ul>
+               </div>
+               <!-- serch box-->
+               <input class="serch_course" type="text" name="name" value="" placeholder="Type Your Course.." autocomplete="off">
+               <span id="search_data_list"></span>
+               <!-- /serch box-->
+               <div class="tryself">
+                  <a href="Javascript/try-it-your-self-wth-teach-coders">
+                  Practice Code
+                  </a>
+               </div>
+            </div>
+         </div>
+      </header>

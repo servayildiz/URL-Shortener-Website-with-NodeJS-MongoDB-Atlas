@@ -1,0 +1,83 @@
+
+     <%-include('common/head.ejs')-%>
+     <title>Hello, world!</title>
+  </head>
+  <body>
+   <%-include('common/header.ejs')-%>
+     <div class="container-fluid bg-side-nav">
+        <div class="row">
+           <div class="col-lg-2 sidebaare">
+               <%-include('common/sidebaar.ejs')-%>
+              
+           </div>
+           <div class="col-lg-10">
+
+              <br><br>
+              <%if(sucess && sucess !=''){%>
+                 <div class="alert alert-success" role="alert">       <%= sucess%>   </div>
+                      <%}else if(err && err !=''){%>
+                 <div class="alert alert-danger" role="alert">        <%= err%>  </div>  <%}%> 
+
+
+
+             <div class="dashboard-content-area">
+               <!-- put your contente -->
+
+              <h1>Kullanıcılar</h1>
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                 <thead>
+                    <tr>
+                       <th>Kullanıcı Foto</th>
+                       <th>Kullanıcı id </th>
+                       <th>Kullanıcı email</th>
+                       <th>Kullanıcı Ad</th>
+                       <th>Kullanıcı Şifre</th>
+                       <th>Kullanıcı Şifre Tekrar</th>
+                       
+                       <th>Düzenle</th>
+                       <th>Sil</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <%x.forEach((y)=>{%>
+
+                   
+                    <tr>  
+                       <td>
+                       
+                          <%if(y.categoryPhoto){%>
+                             <img src="/backend/images/<%=y.categoryPhoto%>" width="70">
+                             <%}else{%>
+                                <img src="/backend/images/no-img.png" width="70">
+                             <%}%>
+                       </td>                      
+                       <td><%=y.unique_id%></td>
+                       <td><%=y.email%></td>
+
+                       <td><%=y.username%></td>
+                       <td><%=y.password%></td>
+                       <td><%=y.passwordConf%></td>
+
+                       
+                       <td>
+                          <a class="btn btn-primary" href="/admin/category/edit/<%=y.unique_id%>">Düzenle</a> </td>
+                          <td>                    
+                          <form style="display: inline;" action="/admin/category/delete/<%=y.unique_id%>?_method=DELETE" method="POST">
+                             <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Sil</button>
+                          </form>
+                       </td>
+                    </tr>
+                    <%})%>
+                    
+                 </tbody>
+              </table>
+
+             <!-- end your content here -->
+            </div>
+
+           </div>
+        </div>
+     </div>
+
+    <%-include('common/footer.ejs')-%>
+     

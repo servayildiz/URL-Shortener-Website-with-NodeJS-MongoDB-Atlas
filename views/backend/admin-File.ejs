@@ -1,0 +1,91 @@
+<%-include('common/head.ejs')-%>
+<title>Hello, world!</title>
+<script src="https://unpkg.com/@mongodb-js/charts-embed-dom@beta"></script>
+</head>
+<body>
+<%-include('common/header.ejs')-%>
+<div class="container-fluid bg-side-nav">
+   <div class="row">
+      <div class="col-lg-2 sidebaare">
+          <%-include('common/sidebaar.ejs')-%>
+         
+      </div>
+      <div class="col-lg-10">
+
+        <div class="dashboard-content-area">
+          <!-- put your contente -->
+
+         <h1>Ana Sayfa</h1>
+         <div class="row">
+            <div class="col-lg-4 col-6" style="margin-left:160px;">
+              <!-- small box -->
+              <div class="small-box bg-info" style="background-color:#0004ff;">
+                <div class="inner">
+                  <h3><%-noOfPage-%></h3>
+  
+                  <p>Toplam Url Sayısı</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="/admin/pages/" class="small-box-footer">More info > </a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3><%-noofcat-%> </h3>
+  
+                  <p>Toplam Kullanıcı Sayısı</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="/admin/category/" class="small-box-footer">More info > </a>
+              </div>
+            </div>
+            <!-- ./col -->
+            
+            <!-- ./col -->
+<!--                   
+            <div class="col-lg-3 col-6">
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3>65</h3>
+  
+                  <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div> -->
+
+        <!-- end your content here -->
+       </div>
+       <div class="row">
+        <div class="col-lg-4 col-6"></div>
+       <div id="chart"></div>
+          <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-project-0-uqhcc/embed/charts?id=63baa7ab-fc32-4a94-8719-427c590ae38d&maxDataAge=-1&theme=light&autoRefresh=false"></iframe>
+       </div>
+           
+       <div class="row">
+        <div class="col-lg-4 col-6"></div>
+       <div id="chart"></div>
+       <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-project-0-uqhcc/embed/charts?id=63babbc1-1efd-4742-8e26-e2a48f8b27cd&maxDataAge=-1&theme=light&autoRefresh=false"></iframe>
+       </div>
+           
+       <div class="row">
+        <div class="col-lg-4 col-6"></div>
+       <div id="chart"></div>
+       <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-project-0-uqhcc/embed/charts?id=63bb163e-fc32-4b61-873b-427c594f6dfe&maxDataAge=-1&theme=light&autoRefresh=false"></iframe>
+       </div>
+   </div>
+</div>
+
+<%-include('common/footer.ejs')-%>
+    

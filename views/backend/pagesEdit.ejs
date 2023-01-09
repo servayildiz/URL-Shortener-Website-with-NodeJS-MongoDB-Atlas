@@ -1,0 +1,52 @@
+
+     <%-include('common/head.ejs')-%>
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+
+                <h1 class="mb-2 mt-2">Edit Page</h1>
+    
+                <form method="post" action="/admin/pages/edit-pages/<%=x.mainUrl%>%>?_method=put" enctype="multipart/form-data">         
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                    <div class="col"><input type="text" name="page_Url" value="<%=x.mainUrl%>" class="form-control" placeholder="Girilen Url"></div>
+                  </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">           
+                    <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                    <div class="col"><input type="text" name="page_Nav_Text" value="<%=x.currentUrl%>" class="form-control" placeholder="Mevcut Url"></div>
+                 </div>
+                 <div class="mb-3 mt-3 row g-9 align-items-center">           
+                  <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                  <div class="col"><input type="text" name="page_Title" value="<%=x.customUrl%>" class="form-control" placeholder="Kısaltma İsmi"></div>
+               </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">           
+                      <div class="col col-lg-2"><label class="form-label">Meta Description</label></div>
+                      <div class="col"><input type="text" name="page_Meta_Descrition" value="<%=x.createdDate%>" class="form-control" placeholder="Oluşturma Tarihi"></div>
+                  </div>
+            
+                 
+                  
+                  
+            
+                 
+              </form>
+
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+
+     <%-include('common/footer.ejs')-%>

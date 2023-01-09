@@ -1,0 +1,25 @@
+<%-include('common/head.ejs')-%>
+
+
+
+      <title><%=x.pageTitle%></title>
+      <meta name="description" content="<%=x.pageMetaDescrition%>" />
+      <meta name="keywords" content="<%=x.pageMetaKeyword%>" />
+   </head>
+   <body>
+      <%-include('common/mobile-nav.ejs')-%>
+      <%-include('common/header.ejs')-%>
+      <%if(x.pagePhoto){%>
+         <div style="max-height:500px; overflow: hidden;">
+            <img src="/backend/images/<%=x.pagePhoto%>" width="100%" class="img-fluid">
+         </div>
+         <%}else{%>
+            <hr>
+            <%}%>
+      
+      <div class="container">
+         <h1><%=x.pageHeading%></h1>
+         <p><%-x.PageDetails-%></p>
+
+      </div>
+      <%-include('common/footer.ejs')-%>

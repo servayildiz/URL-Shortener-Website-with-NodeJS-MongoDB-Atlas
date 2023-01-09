@@ -1,0 +1,99 @@
+
+     <%-include('common/head.ejs')-%>
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+               <h1>Add Products</h1>         
+    
+               <form method="post" action="/admin/products/add-products/"> 
+                 
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">Category Url</label></div>
+                  <div class="col">
+                    <select class="form-select" onchange="ChooseContact(this)" name="product_cat_Url">
+                      <option>Select Your Category</option>
+                      <%x.forEach((y)=>{%>
+                        <option value="<%=y.categoryUrl%>"><%=y.category%></option>
+                      <%})%>                     
+                    </select>
+                  </div>
+                </div>
+
+                <!--Note : Category url ko select option ke value ko read karne ke liye java script kaa use kiya gaya hai joki javascript page footer se pahle likha hua -->
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">Category</label></div>
+                  <div class="col"><input type="text" name="product_Cat" id="cat_url"  class="form-control" placeholder="Category Url" readonly></div>
+                </div>
+
+
+
+                <div class="mb-3 mt-3 row g-9 align-items-center">  
+                  <div class="col col-lg-2"><label class="form-label">URL</label></div>
+                  <div class="col"><input type="text" name="product_Url" class="form-control" placeholder="Page Url"></div>
+                </div>
+                <div class="mb-3 mt-3 row g-9 align-items-center">           
+                  <div class="col col-lg-2"><label class="form-label">Nav Display Text</label></div>
+                  <div class="col"><input type="text" name="product_Nav_Text" class="form-control" placeholder="Navigation Display Text"></div>
+               </div>
+               <div class="mb-3 mt-3 row g-9 align-items-center">           
+                <div class="col col-lg-2"><label class="form-label">Page Title</label></div>
+                <div class="col"><input type="text" name="product_Title" class="form-control" placeholder="Page Title"></div>
+             </div>
+                <div class="mb-3 mt-3 row g-9 align-items-center">           
+                    <div class="col col-lg-2"><label class="form-label">Meta Description</label></div>
+                    <div class="col"><input type="text" name="product_Meta_Descrition" class="form-control" placeholder="product Meta Description"></div>
+                </div>
+          
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">Meta Keyword</label></div>
+                  <div class="col"><input type="text" name="product_Meta_Keyword" class="form-control" placeholder="product Meta Keyword"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">h1</label></div>
+                  <div class="col"><input type="text" name="product_Heading" class="form-control" placeholder="product Heading"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center"> 
+                  <div class="col col-lg-2"><label class="form-label">youtube</label></div>
+                  <div class="col"><input name="product_youtube" placeholder="Input Your Youtube Video Url" class="form-control"></div>
+                </div>
+                
+                <div class="mb-3 mt-3 row g-9 align-items-center">
+                  <div class="col col-lg-2"><label class="form-label">Page Details</label></div>
+                  <div class="col"><textarea rows="10" id="editor" class="editor form-control Page_Details" name="product_Details" placeholder="product Details"></textarea></div>
+                </div>
+          
+                <div class="mb-5 mt-3 align-items-center text-center"> 
+                     <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+      
+     	  
+
+     <%-include('common/footer.ejs')-%>
+
+     <script> 
+          function ChooseContact(data) {
+            document.getElementById ("cat_url").value = data.options[data.selectedIndex].text;        
+          }
+      </script>
+

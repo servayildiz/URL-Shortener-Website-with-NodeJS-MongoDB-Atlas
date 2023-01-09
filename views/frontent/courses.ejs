@@ -1,0 +1,43 @@
+<%-include('common/head.ejs')-%>
+
+
+
+      <title>Courses</title>
+      <meta name="description" content="Courses" />
+      <meta name="keywords" content="Courses" />
+   </head>
+   <body>
+      <%-include('common/mobile-nav.ejs')-%>
+      <%-include('common/header.ejs')-%>
+     
+      <section class="teach-coders-dtls BasicJavaScript">
+         <div class="container">
+            <div class="row flex-column-reverse flex-lg-row">
+               <div class="col-lg-3 col-md-4 col-12">
+   
+                  <%-include('common/side-nav.ejs')-%>
+
+                  
+   
+      
+               </div>
+               <div class="col-lg-9 col-md-8 col-12">
+                  <div class="row">
+                     <%x.forEach((y)=>{%>                  
+                     <div class="col-sm-4">
+                        <div class="card">
+                           <img src="/backend/images/<%=y.categoryPhoto%>" class="card-img-top" alt="<%=y.category%>">
+                           <div class="card-body">
+                             <h5 class="card-title"><%=y.category%></h5>
+                             <p class="card-text"><%-y.categoryDetails.slice(0, 120)-%></p>
+                             <a href="/course/<%=y.categoryUrl%>/" class="btn btn-primary">Details Course</a>
+                           </div>
+                         </div>
+                     </div>
+                     <%})%>              
+                   </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <%-include('common/footer.ejs')-%>

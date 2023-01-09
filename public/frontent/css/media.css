@@ -1,0 +1,61 @@
+@media (max-width: 700px){
+    header.header{
+       padding:8px 0;
+    }
+    input.serch_course{
+        top: 4px;
+        right: 8px;
+        max-width: 0;
+        min-width: 162px;
+        padding-left: calc(1.4rem + 10px);
+        position: absolute;
+    }
+    header.header .nav_icon{
+        padding-left:15px;
+    }
+    header.sticky input.serch_course{
+        position: inherit;
+        min-width: 42%;
+        background-size: 14px 14px;
+        padding-left: calc(1.4rem + 10px);
+        margin-left: 6px;
+        margin-top: 5px;
+         top: 4px;
+        right: 8px;
+    }
+    header.sticky .header-call-to-action{
+        display: none;
+    }
+    header.sticky{
+        height:60px;
+    }
+    li.subject ul.subject-details{
+        top:43px
+    }
+    li.subject ul.subject-details:after{
+        right:52px;
+    }
+    .logo-topic{
+        display:none;
+    }
+    .class-name{
+        display:none;
+    }
+    .less-padding-left{
+        padding-left:12px;
+    }
+    .footer-row{
+        display:block;
+    }
+    .footer-copy_right_text{
+        text-align:center;
+        padding-top:20px;
+        padding-bottom:10px;
+        line-height: 25px
+    }
+    ul.not-list {
+        margin: 0;
+        padding: 0;
+    }
+
+}

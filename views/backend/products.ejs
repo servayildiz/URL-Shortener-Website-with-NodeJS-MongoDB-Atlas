@@ -1,0 +1,80 @@
+
+     <%-include('common/head.ejs')-%>
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+
+             <br><br>
+
+                 
+               <%if(sucess && sucess !=''){%>
+                  <div class="alert alert-success" role="alert">       <%= sucess%>   </div>
+                       <%}else if(err && err !=''){%>
+                  <div class="alert alert-danger" role="alert">        <%= err%>  </div>  <%}%> 
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+
+               <h1>All Products</h1>
+
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Category</th>
+                        <th>Category url</th>
+                        <th>URL</th>
+                        <th>Nav Text</th>
+                        <th>Title</th>
+                        <th>Meta Keyw.</th>
+                        <th>Met Desc.</th>
+                        <th>h1</th>
+                        <th>Video Url</th>
+                        <th>Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%x.forEach((y)=>{%>
+
+                   
+                     <tr>
+                        <td><%=y.productCat%></th>
+                        <td><%=y.productCatUrl%></th>
+                        <td><%=y.productUrl%></th>
+                           <td><%=y.productNavText%></td>
+                           <td><%=y.productTitle%></td>
+                           <td><%=y.productMetaDescrition%></td>
+                           <td><%=y.productMetaKeyword%></td>
+                           <td><%=y.productHeading%></td>
+                           <td><%=y.productyoutube.slice(0, 20)%></td>
+                           <td><%=y.productDetails.slice(0, 50)%></td>
+                        <td>
+                           <a class="btn btn-primary" href="/admin/products/edit/<%=y.productUrl%>">Edit</a> </td>                    
+                        <td><form style="display: inline;" action="/admin/products/delete/<%=y.productUrl%>?_method=DELETE" method="POST">
+                              <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                           </form>
+                        </td>
+                     </tr>
+                     <%})%>
+                  </tbody>
+               </table>
+
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+
+     <%-include('common/footer.ejs')-%>

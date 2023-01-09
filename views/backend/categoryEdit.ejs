@@ -1,0 +1,59 @@
+<%-include('common/head.ejs')-%>
+      <title>Admin Paneli - Kullanıcı Düzenle</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+
+                <h1 class="mb-2 mt-2">Kullanıcı Düzenle</h1>
+    
+                <form method="post" action="/admin/category/edit/<%=x.unique_id%>?_method=put" enctype="multipart/form-data">            
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Unique_id</label></div>
+                    <div class="col"><input type="text" name ="unique_id" class="form-control" value="<%=x.unique_id%>" placeholder="Id giriniz"></div>
+                  </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Email</label></div>
+                    <div class="col"><input type="text" name ="email" class="form-control" value="<%=x. email%>" placeholder="Email giriniz"></div>
+                  </div>
+
+
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Kullanıcı Adı</label></div>
+                    <div class="col"><input type="text" name ="username" class="form-control" value="<%=x.username%>" placeholder="Kullanıcı Adı giriniz"></div>
+                  </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Şifre</label></div>
+                    <div class="col"><input type="text" name ="password" class="form-control" value="<%=x.password%>" placeholder="Şifre giriniz"></div>
+                  </div>
+                  <div class="mb-3 mt-3 row g-9 align-items-center">  
+                    <div class="col col-lg-2"><label class="form-label">Şifre Tekrar</label></div>
+                    <div class="col"><input type="text" name ="passwordConf" class="form-control" value="<%=x.passwordConf%>" placeholder="Şifre tekrar"></div>
+                  </div>
+
+
+                  
+                  
+                  <div class="mb-5 mt-3 align-items-center text-center"> 
+                       <button type="submit" class="btn btn-success">Kaydet</button>
+                  </div>
+              </form>
+
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+
+     <%-include('common/footer.ejs')-%>
+    

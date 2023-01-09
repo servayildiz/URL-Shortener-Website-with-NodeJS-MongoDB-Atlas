@@ -1,0 +1,73 @@
+
+     <%-include('common/head.ejs')-%>
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <%-include('common/header.ejs')-%>
+      <div class="container-fluid bg-side-nav">
+         <div class="row">
+            <div class="col-lg-2 sidebaare">
+                <%-include('common/sidebaar.ejs')-%>
+               
+            </div>
+            <div class="col-lg-10">
+
+              <div class="dashboard-content-area">
+                <!-- put your contente -->
+
+                <%if(sucess && sucess !=''){%>
+                  <div class="alert alert-success" role="alert">       <%= sucess%>   </div>
+                       <%}else if(err && err !=''){%>
+                  <div class="alert alert-danger" role="alert">        <%= err%>  </div>  <%}%> 
+  
+
+               <h1>Url İşlem Listesi</h1>
+               
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        
+                        <th>.</th>
+                        <th>Girilen Url</th>
+                        <th>Mevcut Url</th>
+                        <th>Kısaltma İsmi</th>
+                        <th>Oluşturma Tarihi</th>
+                        
+                        
+                     </tr>
+                  </thead>
+                  <tbody>
+             
+
+                        <%x.forEach((y)=>{%>
+                           <tr>                       
+                              <td>
+                                 <%if(y.pagePhoto){%>
+                                    <img src="/backend/images/<%=y.pagePhoto%>" width="70">
+                                    <%}else{%>
+                                       <img src="/backend/images/no-img.png" width="70">
+                                    <%}%>
+                                  </td>
+                              <td><%=y.mainUrl%></td>
+                              <td><%=y.currentUrl%></td>
+                              <td><%=y.customUrl%></td>
+                              <td> <%=y.createdDate%></td>
+                             
+                              
+                             
+                           </tr>
+                        <%x})%>
+     
+              
+                  </tbody>
+               </table>
+
+              
+              <!-- end your content here -->
+             </div>
+
+            </div>
+         </div>
+      </div>
+
+     <%-include('common/footer.ejs')-%>
