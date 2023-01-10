@@ -45,7 +45,7 @@ app.use(session({
   secret: 'work hard',
   resave: true,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: 'mongodb+srv://YazLab:1ZBT2ZSY3AMT4Aİ@cluster0.wdapfo8.mongodb.net/?retryWrites=true&w=majority'
+  store: MongoStore.create({ mongoUrl: 'mongodb+srv://YazLab:<password>@cluster0.wdapfo8.mongodb.net/?retryWrites=true&w=majority'
   })
 }));
 
